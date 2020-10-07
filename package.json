@@ -1,0 +1,10 @@
+{
+  "name": "algoritmos_escalonamento_str",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://gitlab.com/caio_oliveira_ceub/algoritmos_escalonamento_str.git",
+  "license": "MIT",
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  }
+}
