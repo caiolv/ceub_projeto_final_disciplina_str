@@ -22,3 +22,25 @@ ou
 ~~~shell
 npm install
 ~~~
+
+## Sobre os Algoritmos
+
+
+### EDF - Earliest Deadline First
+
+O "Earliest Deadline First" (EDF) é um algoritmo de escalonamento de prioridade dinâmica usado em sistemas operacionais em tempo real para colocar processos em uma fila de prioridade. Sempre que ocorrer um evento de agendamento (tarefa concluída, nova tarefa liberada, etc.), a fila será pesquisada para o processo mais próximo de seu prazo. Este processo é o próximo a ser agendado para execução.
+
+Para rodar o código, apenas executar o comando
+~~~shell
+node EDF.js
+~~~
+
+### FCFS - First Come First Serve
+
+O "First Come First Serve" (FCFS) é um algoritmo de escalonamento muito semelhante às estruturas de dados da fila FIFO (*first in first out*), em que o elemento de dados que é adicionado primeiro à fila é o que sairá primeiro da fila.
+
+
+Para rodar o código, apenas executar o comando
+~~~shell
+node FCFS.js
+~~~
