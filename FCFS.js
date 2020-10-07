@@ -1,4 +1,4 @@
-const input = require("./input");
+const inputInt = require("./inputInt");
 
 // Calcular Waiting Time
 function waiting_time(processos) {
@@ -9,7 +9,7 @@ function waiting_time(processos) {
     // Definindo tamanho da waiting list
     wt = Array.from({length: processos.length}, (_, i) => 0);
 
-    for (i = 1; i < processos.length; i++) {
+    for (x = 1; x < processos.length; x++) {
       tempo_servico[x] = (tempo_servico[x-1] + processos[x-1][1])
       wt[x] = tempo_servico[x] - processos[x][0]
       if (wt[x] < 0)
@@ -25,7 +25,7 @@ function turn_around_time(processos){
     let tat =  Array.from({length: processos.length}, (_, i) => 0); // Turn around time
     let wt = waiting_time(processos);
 
-    for (i = 0; i < processos.length; i++)
+    for (x = 0; x < processos.length; x++)
       tat[x] = processos[x][1] + wt[x];
 
     return tat;
@@ -41,7 +41,7 @@ function average_wt(processos){
 
 // Calcular media do Turnaround time
 function average_tat(processos){
-    let qnt_proc = len(processos);
+    let qnt_proc = processos.length;
     tat = turn_around_time(processos).reduce(reducer);
     
     return (tat / qnt_proc);
@@ -52,21 +52,14 @@ function average_tat(processos){
 // Lista de todos os processos
 processos = []
 
-input("Qnt de Processos: ", qtdProcessos => {
-  for (var i = 0; i < qtdProcessos; i++) {
-    let at = 0;
-    let bt = 0;
+let qtdProcessos = inputInt('Qnt de Processos: ');
 
+for (var i = 0; i < qtdProcessos; i++) {
+  let at = inputInt('Arrival Time:');
+  let bt = inputInt('Burst Time:');
 
-
-  }
-});
-
-// qnt_processos = int(input("Qnt de Processos: "))
-// for x in range(qnt_processos):
-//     at = int(input("Arrival Time: "))
-//     bt =  int(input("Burst Time: "))
-//     processos.append([at, bt])
+  processos.push([at, bt])
+}
 
 // /*
 // Estrutura do Processo
@@ -74,13 +67,14 @@ input("Qnt de Processos: ", qtdProcessos => {
 // */
 
 
-// console.log("Process\tBurst Time\tArrival Time\tWaiting Time\tTurn-Around Time\tCompletion Time\n\n")
-// wt = waiting_time(processos)
-// tat = turn_around_time(processos)
-// avg_wt = average_wt(processos)
-// avg_tat = average_tat(processos)
-// // Completion Time = Turn Around Time + Arrival Time
-// for proc in range(len(processos)):
-//     print(f"{proc}\t\t{processos[proc][1]}\t\t{processos[proc][0]}\t\t{wt[proc]}\t\t{tat[proc]}\t\t{tat[proc] + processos[proc][0]}\n")
-// print(f"Average Waiting Time : {avg_wt}")
-// print(f"Average Turn-Around Time: {avg_tat}")
+console.log("Process\tBurst Time\tArrival Time\tWaiting Time\tTurn-Around Time\tCompletion Time\n\n")
+wt = waiting_time(processos)
+tat = turn_around_time(processos)
+avg_wt = average_wt(processos)
+avg_tat = average_tat(processos)
+
+// Completion Time = Turn Around Time + Arrival Time
+for (proc = 0; proc < processos.length; proc++)
+    console.log(`${proc}\t\t${processos[proc][1]}\t\t${processos[proc][0]}\t\t${wt[proc]}\t\t${tat[proc]}\t\t${tat[proc] + processos[proc][0]}\n`)
+console.log(`Average Waiting Time : ${avg_wt}`)
+console.log(`Average Turn-Around Time: ${avg_tat}`)
