@@ -1,3 +1,4 @@
+const inputInt = require("./inputInt");
 const reducer = (accumulator, currentValue) => accumulator + currentValue;
 
 // ROUND-ROBIN
@@ -53,7 +54,7 @@ function round_robin(processos, quantum, qnt_processos) {
 function turn_around_time(processos, wt, qnt_processos) { 
     tat =   Array.from({length: qnt_processos}, (_, i) => 0);
     for (var i = 0; i < qnt_processos; i++)
-        tat[x] = processos[x][2] + wt[x]
+        tat[i] = processos[i][2] + wt[i]
     return tat
 }
 
@@ -66,3 +67,52 @@ function average_wt(wt, qnt_processos) {
     waiting_time = wt.reduce(reducer);
     return (waiting_time/qnt_processos)
 }
+
+//#####################################################################
+
+processos = []
+
+qtdProcessos = inputInt("Quantidade de processos: ")
+
+for (var i = 0; i < qtdProcessos; i++) {
+  let pid = "P"; 
+  let at = inputInt('Arrival Time:');
+  let bt = inputInt('Burst Time:');
+
+  processos.push([pid, at, bt])
+}
+
+quantum = inputInt("Informe o Quantum: ")
+
+/*
+###########################################
+# Estrutura da Lista de Processos
+# 
+#   processos = [
+#               [id, at, bt],
+#               [id2, at2, bt2]
+#               ]
+#
+#   id = id do processo
+#   at = Arrival Time
+#   bt = Burst Time
+############################################
+*/
+
+//Waiting Time
+wt = round_robin(processos, quantum, qtdProcessos)
+//TurnAround Time
+tat = turn_around_time(processos, wt, qtdProcessos)
+//Média de todos os TurnAround Time
+avg_tat = average_tat(tat, qtdProcessos)
+//Média de todos os Waiting Time
+avg_wt = average_wt(wt, qtdProcessos)
+console.log(`WT = ${wt}\nTAT = ${tat}\nAVG_TAT = ${avg_tat}\nAVG_WT = ${avg_wt}`)
+
+
+console.log("| Process |\t| Burst Time |\t\t| Arrival Time |\t| Waiting Time |\t| Turn-Around Time |\t\n\n")
+for (proc = 0; proc < processos.length; proc++)
+    console.log(`${processos[proc][0]}\t\t\t${processos[proc][2]}\t\t\t${processos[proc][1]}\t\t\t${wt[proc]}\t\t\t         ${tat[proc]}\t\t\t\n`)
+
+console.log(`Average Waiting Time: ${avg_wt}`);
+console.log(`Average Turn-Around Time: ${avg_tat}`);
