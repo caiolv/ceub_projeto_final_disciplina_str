@@ -9,12 +9,11 @@ function waiting_time(processos) {
     wt = Array.from({length: processos.length}, (_, i) => 0);
 
     for (x = 1; x < processos.length; x++) {
-      tempo_servico[x] = (tempo_servico[x-1] + processos[x-1][1]);
-      wt[x] = tempo_servico[x] - processos[x][0];
+      tempo_servico[x] = (parseInt(tempo_servico[x-1]) + parseInt(processos[x-1][2]));
+      wt[x] = parseInt(tempo_servico[x]) - parseInt(processos[x][1]);
       if (wt[x] < 0)
-          wt[x] = 0;
+					wt[x] = 0;
     }
-
     return wt;
 }
 
