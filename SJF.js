@@ -46,7 +46,7 @@ function SJF(processos) {
     //Ordenando por Job(Burst time) mais curto
 
     for (var i = 0; i < processos.length; i++) {
-        for (var i = 0; i < processos.length - 1; i++) {
+        for (var j = 0; j < processos.length - 1; j++) {
             if (processos[j][2] > processos[j+1][2]) {
                 let aux = processos[j];
                 processos[j] = processos[j+1];
@@ -59,55 +59,60 @@ function SJF(processos) {
 }
 
 //######################################################################
-// print(":::::::::::::::::::::::::::::::::::SJF:::::::::::::::::::::::::::::::::::")
+console.log(":::::::::::::::::::::::::::::::::::SJF:::::::::::::::::::::::::::::::::::")
 
-// processos = []
-// qnt_processos = int(input("Quantidade de processos: "))
-// for x in range(qnt_processos):
-//     pid = f"P{x}"
-//     at = int(input("Arrival Time: "))
-//     bt = int(input("Burst Time: "))
-//     processos.append([pid, at, bt])
+processos = []
 
-// /*
-// #############################################
-// #  Estrutura da Lista de Processos           #
-// #  Lista_processos = [                      #
-// #                    [id, at, bt],          #
-// #                    [id2, at2, bt2],       #
-// #                   ]                       #
-// #                                           #
-// #   id = id do processo                     #
-// #   at = Arrival Time                       #
-// #   bt = Burst Time                         #
-// #                                           #
-// #############################################
-// */
-// wt = waiting_time(processos)
-// tat = turn_around_time(processos)
-// avg_wt = average_wt(processos)
-// avg_tat = average_tat(processos)
-// print("| Process |\t| Burst Time |\t\t| Arrival Time |\t| Waiting Time |\t| Turn-Around Time |\t| Completion Time |\n\n")
-// for proc in range(len(processos)):
-//     print(f"{processos[proc][0]}\t\t\t{processos[proc][2]}\t\t\t{processos[proc][1]}\t\t\t{wt[proc]}\t\t\t{tat[proc]}\t\t\t{tat[proc] + processos[proc][1]}\n")
+qtdProcessos = inputInt("Quantidade de processos: ")
 
-// print(f"Average Waiting Time: {avg_wt}")
-// print(f"Average Turn-Around Time: {avg_tat}")
+for (var i = 0; i < qtdProcessos; i++) {
+  let pid = "P"; 
+  let at = inputInt('Arrival Time:');
+  let bt = inputInt('Burst Time:');
 
-// print("\n:::::::::::::::::::::::DEPOIS::::::::::::::::::::::\n")
+  processos.push([pid, at, bt])
+}
 
-// processos = SJF(processos)
-// wt = waiting_time(processos)
-// tat = turn_around_time(processos)
-// avg_wt = average_wt(processos)
-// avg_tat = average_tat(processos)
-// print(processos)
+/*
+#############################################
+#  Estrutura da Lista de Processos           #
+#  Lista_processos = [                      #
+#                    [id, at, bt],          #
+#                    [id2, at2, bt2],       #
+#                   ]                       #
+#                                           #
+#   id = id do processo                     #
+#   at = Arrival Time                       #
+#   bt = Burst Time                         #
+#                                           #
+#############################################
+*/
+wt = waiting_time(processos)
+tat = turn_around_time(processos)
+avg_wt = average_wt(processos)
+avg_tat = average_tat(processos)
+console.log("| Process |\t| Burst Time |\t\t| Arrival Time |\t| Waiting Time |\t| Turn-Around Time |\t| Completion Time |\n\n")
 
-// print("| Process |\t| Burst Time |\t\t| Arrival Time |\t| Waiting Time |\t| Turn-Around Time |\t| Completion Time |\n\n")
-// for proc in range(len(processos)):
-//     print(f"{processos[proc][0]}\t\t\t{processos[proc][2]}\t\t\t{processos[proc][1]}\t\t\t{wt[proc]}\t\t\t{tat[proc]}\t\t\t{tat[proc] + processos[proc][1]}\n")
+for (proc = 0; proc < processos.length; proc++)
+    console.log(`${processos[proc][0]}${proc}\t\t\t${processos[proc][2]}\t\t\t${processos[proc][1]}\t\t\t${wt[proc]}\t\t\t${tat[proc]}\t\t\t${tat[proc] + processos[proc][1]}\n`)
 
-// print(f"Average Waiting Time: {avg_wt}")
-// print(f"Average Turn-Around Time: {avg_tat}")
+console.log(`Average Waiting Time: {avg_wt}`)
+console.log(`Average Turn-Around Time: {avg_tat}`)
+
+console.log("\n:::::::::::::::::::::::DEPOIS::::::::::::::::::::::\n")
+
+processos = SJF(processos)
+wt = waiting_time(processos)
+tat = turn_around_time(processos)
+avg_wt = average_wt(processos)
+avg_tat = average_tat(processos)
+console.log(processos)
+
+console.log("| Process |\t| Burst Time |\t\t| Arrival Time |\t| Waiting Time |\t| Turn-Around Time |\t| Completion Time |\n\n")
+for (proc = 0; proc < processos.length; proc++)
+    console.log(`${processos[proc][0]}${proc}\t\t\t${processos[proc][2]}\t\t\t${processos[proc][1]}\t\t\t${wt[proc]}\t\t\t${tat[proc]}\t\t\t${tat[proc] + processos[proc][1]}\n`)
+
+console.log(`Average Waiting Time: ${avg_wt}`)
+console.log(`Average Turn-Around Time: ${avg_tat}`)
 
 
