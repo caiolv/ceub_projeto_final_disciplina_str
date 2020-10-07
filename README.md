@@ -6,6 +6,24 @@ Este repositório se trata da reconstrução dos [**algoritmos de escalonamento*
 
 O repositório está subdividido em 4 setores, cada um com uma pasta, onde cada pasta representa a resolução de cada exercício do laboratório. Além disso, cada pasta possui um README que contém uma descrição do exercício e uma explicação da resolução.
 
+## O que foi feito
+
+Como pode ser observado, os [algoritmos originais](https://dev.educatux.com.br/uniceub/str/-/tree/master/algoritmos_de_escalonamento) foram escritos na linguagem Python. Fiz a transformaão deles para a linguagem Javascript, podendo ser executado através do Node.
+
+Para facilitar a entrada (*input*) do usuário, fiz o uso da dependência chamada [**prompt-sync**](https://github.com/heapwolf/prompt-sync). Foi uma alternativa para deixar o código mais limpo, ao invés de ter que usar as *callbacks* do Node, como no exemplo abaixo.
+
+~~~javascript
+const readline = require('readline').createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+readline.question('Qual o seu nome?', nome => {
+  console.log(`Oi! Me chamo ${nome}!`);
+  readline.close();
+});
+~~~
+
 ## Instalação
 
 Clone o repositório com o comando 
