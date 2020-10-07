@@ -13,7 +13,7 @@ Clone o repositório com o comando
 git clone https://gitlab.com/caio_oliveira_ceub/algoritmos_escalonamento_str.git
 ~~~
 
-e em seguida installe a dependência pelo **Yarn** ou **NPM** pelo comando
+e em seguida installe a dependência  pelo **Yarn** ou **NPM** pelo comando
 
 ~~~shell
 yarn install
@@ -30,7 +30,7 @@ npm install
 
 O "Earliest Deadline First" (EDF) é um algoritmo de escalonamento de prioridade dinâmica usado em sistemas operacionais em tempo real para colocar processos em uma fila de prioridade. Sempre que ocorrer um evento de agendamento (tarefa concluída, nova tarefa liberada, etc.), a fila será pesquisada para o processo mais próximo de seu prazo. Este processo é o próximo a ser agendado para execução.
 
-Para rodar o código, apenas executar o comando
+Para rodar o código do algoritmo EDF, execute o comando
 ~~~shell
 node EDF.js
 ~~~
@@ -40,7 +40,25 @@ node EDF.js
 O "First Come First Serve" (FCFS) é um algoritmo de escalonamento muito semelhante às estruturas de dados da fila FIFO (*first in first out*), em que o elemento de dados que é adicionado primeiro à fila é o que sairá primeiro da fila.
 
 
-Para rodar o código, apenas executar o comando
+Para rodar o código do algoritmo FCFS, execute o comando
 ~~~shell
 node FCFS.js
+~~~
+
+### RR - Round-robin
+
+O Round-robin (RR) é um dos algoritmos de escalonamento para agendamento de processos. Utiliza-se um frações de tempo para cada cada processo em porções iguais e de forma circular, manipulando todos os processos sem prioridade.
+
+Para rodar o código do algoritmo RR, execute o comando
+~~~shell
+node RR.js
+~~~
+
+### SJF - Shortest Job First
+
+O Shortest Job First (RR) é um dos algoritmos de escalonamento para agendamento de processos. O Algoritmo pressupõe o conhecimento prévio dos tempos de execução de todos os processos. Sabendo qual o processo com o menor tempo de execuão, esse processo passa a ser executado, seguido por outros processos por ordem crescente de tempo de execução.
+
+Para rodar o código do algoritmo SJF, execute o comando
+~~~shell
+node RR.js
 ~~~
