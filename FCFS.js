@@ -7,7 +7,7 @@ function waiting_time(processos) {
     //O tempo de servico é a soma de todos os BurstTime dos Processos anteriores
     tempo_servico[0] = 0;
     // Definindo tamanho da waiting list
-    wt = Array.from({length: processos.length}, (_, i) => 0);
+    let wt = Array.from({length: processos.length}, (_, i) => 0);
 
     for (x = 1; x < processos.length; x++) {
       tempo_servico[x] = (tempo_servico[x-1] + processos[x-1][1])
@@ -20,9 +20,9 @@ function waiting_time(processos) {
 }
 
 // Calcular Turn around Time
-function turn_around_time(processos){
+function turn_around_time(processos) {
     //TurnAround Time = BurstTime + WaitingTime
-    let tat =  Array.from({length: processos.length}, (_, i) => 0); // Turn around time
+    let tat = Array.from({length: processos.length}, (_, i) => 0); // Turn around time
     let wt = waiting_time(processos);
 
     for (x = 0; x < processos.length; x++)
@@ -34,15 +34,15 @@ const reducer = (accumulator, currentValue) => accumulator + currentValue;
 
 // Calcular media do waiting time
 function average_wt(processos){
-    qnt_proc = processos.length;
-    wt = waiting_time(processos).reduce(reducer);
+    let qnt_proc = processos.length;
+    let wt = waiting_time(processos).reduce(reducer);
     return (wt / qnt_proc);
 }
 
 // Calcular media do Turnaround time
 function average_tat(processos){
     let qnt_proc = processos.length;
-    tat = turn_around_time(processos).reduce(reducer);
+    let tat = turn_around_time(processos).reduce(reducer);
     
     return (tat / qnt_proc);
 }
@@ -68,10 +68,10 @@ for (var i = 0; i < qtdProcessos; i++) {
 
 
 console.log("Process\tBurst Time\tArrival Time\tWaiting Time\tTurn-Around Time\tCompletion Time\n\n")
-wt = waiting_time(processos)
-tat = turn_around_time(processos)
-avg_wt = average_wt(processos)
-avg_tat = average_tat(processos)
+const wt = waiting_time(processos)
+const tat = turn_around_time(processos)
+const avg_wt = average_wt(processos)
+const avg_tat = average_tat(processos)
 
 // Completion Time = Turn Around Time + Arrival Time
 for (proc = 0; proc < processos.length; proc++)
