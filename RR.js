@@ -1,9 +1,11 @@
+const reducer = (accumulator, currentValue) => accumulator + currentValue;
+
 // ROUND-ROBIN
 function round_robin(processos, quantum, qnt_processos) {
     // Criando uma lista de Burst Time restante dos processos
-    bt_restante =  Array.from({length: qnt_processos}, (_, i) => 0);
+    bt_restante = Array.from({length: qnt_processos}, (_, i) => 0);
     // Criando uma lista de Waiting Time
-    wt =  Array.from({length: qnt_processos}, (_, i) => 0);
+    wt = Array.from({length: qnt_processos}, (_, i) => 0);
     // Copiando BurstTime dos processos para o bt_restante
     for (var i = 0; i < qnt_processos; i++)
         bt_restante[i] = processos[i][2]
@@ -46,4 +48,21 @@ function round_robin(processos, quantum, qnt_processos) {
     }
     return wt // Retornar Lista de WaitingTime
 
+}
+
+function turn_around_time(processos, wt, qnt_processos) { 
+    tat =   Array.from({length: qnt_processos}, (_, i) => 0);
+    for (var i = 0; i < qnt_processos; i++)
+        tat[x] = processos[x][2] + wt[x]
+    return tat
+}
+
+function average_tat(tat, qnt_processos) { 
+    turnaround_time = tat.reduce(reducer);
+    return (turnaround_time/qnt_processos)
+}
+
+function average_wt(wt, qnt_processos) { 
+    waiting_time = wt.reduce(reducer);
+    return (waiting_time/qnt_processos)
 }
