@@ -59,55 +59,55 @@ function SJF(processos) {
 }
 
 //######################################################################
-print(":::::::::::::::::::::::::::::::::::SJF:::::::::::::::::::::::::::::::::::")
+// print(":::::::::::::::::::::::::::::::::::SJF:::::::::::::::::::::::::::::::::::")
 
-processos = []
-qnt_processos = int(input("Quantidade de processos: "))
-for x in range(qnt_processos):
-    pid = f"P{x}"
-    at = int(input("Arrival Time: "))
-    bt = int(input("Burst Time: "))
-    processos.append([pid, at, bt])
+// processos = []
+// qnt_processos = int(input("Quantidade de processos: "))
+// for x in range(qnt_processos):
+//     pid = f"P{x}"
+//     at = int(input("Arrival Time: "))
+//     bt = int(input("Burst Time: "))
+//     processos.append([pid, at, bt])
 
-/*
-#############################################
-#  Estrutura da Lista de Processos           #
-#  Lista_processos = [                      #
-#                    [id, at, bt],          #
-#                    [id2, at2, bt2],       #
-#                   ]                       #
-#                                           #
-#   id = id do processo                     #
-#   at = Arrival Time                       #
-#   bt = Burst Time                         #
-#                                           #
-#############################################
-*/
-wt = waiting_time(processos)
-tat = turn_around_time(processos)
-avg_wt = average_wt(processos)
-avg_tat = average_tat(processos)
-print("| Process |\t| Burst Time |\t\t| Arrival Time |\t| Waiting Time |\t| Turn-Around Time |\t| Completion Time |\n\n")
-for proc in range(len(processos)):
-    print(f"{processos[proc][0]}\t\t\t{processos[proc][2]}\t\t\t{processos[proc][1]}\t\t\t{wt[proc]}\t\t\t{tat[proc]}\t\t\t{tat[proc] + processos[proc][1]}\n")
+// /*
+// #############################################
+// #  Estrutura da Lista de Processos           #
+// #  Lista_processos = [                      #
+// #                    [id, at, bt],          #
+// #                    [id2, at2, bt2],       #
+// #                   ]                       #
+// #                                           #
+// #   id = id do processo                     #
+// #   at = Arrival Time                       #
+// #   bt = Burst Time                         #
+// #                                           #
+// #############################################
+// */
+// wt = waiting_time(processos)
+// tat = turn_around_time(processos)
+// avg_wt = average_wt(processos)
+// avg_tat = average_tat(processos)
+// print("| Process |\t| Burst Time |\t\t| Arrival Time |\t| Waiting Time |\t| Turn-Around Time |\t| Completion Time |\n\n")
+// for proc in range(len(processos)):
+//     print(f"{processos[proc][0]}\t\t\t{processos[proc][2]}\t\t\t{processos[proc][1]}\t\t\t{wt[proc]}\t\t\t{tat[proc]}\t\t\t{tat[proc] + processos[proc][1]}\n")
 
-print(f"Average Waiting Time: {avg_wt}")
-print(f"Average Turn-Around Time: {avg_tat}")
+// print(f"Average Waiting Time: {avg_wt}")
+// print(f"Average Turn-Around Time: {avg_tat}")
 
-print("\n:::::::::::::::::::::::DEPOIS::::::::::::::::::::::\n")
+// print("\n:::::::::::::::::::::::DEPOIS::::::::::::::::::::::\n")
 
-processos = SJF(processos)
-wt = waiting_time(processos)
-tat = turn_around_time(processos)
-avg_wt = average_wt(processos)
-avg_tat = average_tat(processos)
-print(processos)
+// processos = SJF(processos)
+// wt = waiting_time(processos)
+// tat = turn_around_time(processos)
+// avg_wt = average_wt(processos)
+// avg_tat = average_tat(processos)
+// print(processos)
 
-print("| Process |\t| Burst Time |\t\t| Arrival Time |\t| Waiting Time |\t| Turn-Around Time |\t| Completion Time |\n\n")
-for proc in range(len(processos)):
-    print(f"{processos[proc][0]}\t\t\t{processos[proc][2]}\t\t\t{processos[proc][1]}\t\t\t{wt[proc]}\t\t\t{tat[proc]}\t\t\t{tat[proc] + processos[proc][1]}\n")
+// print("| Process |\t| Burst Time |\t\t| Arrival Time |\t| Waiting Time |\t| Turn-Around Time |\t| Completion Time |\n\n")
+// for proc in range(len(processos)):
+//     print(f"{processos[proc][0]}\t\t\t{processos[proc][2]}\t\t\t{processos[proc][1]}\t\t\t{wt[proc]}\t\t\t{tat[proc]}\t\t\t{tat[proc] + processos[proc][1]}\n")
 
-print(f"Average Waiting Time: {avg_wt}")
-print(f"Average Turn-Around Time: {avg_tat}")
+// print(f"Average Waiting Time: {avg_wt}")
+// print(f"Average Turn-Around Time: {avg_tat}")
 
 
