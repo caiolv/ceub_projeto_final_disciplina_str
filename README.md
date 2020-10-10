@@ -4,8 +4,6 @@
 
 Este repositório se trata da reconstrução dos [**algoritmos de escalonamento**](https://dev.educatux.com.br/uniceub/str/-/tree/master/algoritmos_de_escalonamento) da matéria **Sistemas em Tempo Real e Embarcados** do UniCeub.
 
-O repositório está subdividido em 4 setores, cada um com uma pasta, onde cada pasta representa a resolução de cada exercício do laboratório. Além disso, cada pasta possui um README que contém uma descrição do exercício e uma explicação da resolução.
-
 ## O que foi feito
 
 Como pode ser observado, os [algoritmos originais](https://dev.educatux.com.br/uniceub/str/-/tree/master/algoritmos_de_escalonamento) foram escritos na linguagem Python. Fiz a transformaão deles para a linguagem Javascript, podendo ser executado através do Node.
