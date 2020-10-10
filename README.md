@@ -2,11 +2,11 @@
 
 **Aluno**: Caio Costa de Oliveira
 
-Este repositório se trata da reconstrução dos [**algoritmos de escalonamento**](https://dev.educatux.com.br/uniceub/str/-/tree/master/algoritmos_de_escalonamento) da matéria **Sistemas em Tempo Real e Embarcados** do UniCeub.
+Este repositório se trata da reconstrução dos [**algoritmos de escalonamento**](https://dev.educatux.com.br/uniceub/str/-/tree/master/algoritmos_de_escalonamento) (Presentes na pasta ```algoritmos_python```) da matéria **Sistemas em Tempo Real e Embarcados** do UniCeub.
 
 ## O que foi feito
 
-Como pode ser observado, os [algoritmos originais](https://dev.educatux.com.br/uniceub/str/-/tree/master/algoritmos_de_escalonamento) foram escritos na linguagem Python. Foi feita a transformaão deles para a linguagem Javascript, podendo ser executado através do [Node.js](https://nodejs.org/en/download/).
+Como pode ser observado, os [algoritmos originais](https://dev.educatux.com.br/uniceub/str/-/tree/master/algoritmos_de_escalonamento) (pasta ```algoritmos_python```) foram escritos na linguagem Python. Foi feita a transformaão deles para a linguagem Javascript, podendo ser executado através do [Node.js](https://nodejs.org/en/download/).
 
 Para facilitar a entrada (*input*) do usuário, foi feito o uso de uma dependência chamada [**prompt-sync**](https://github.com/heapwolf/prompt-sync). Foi uma alternativa para deixar o código mais limpo, ao invés de ter que usar as *callbacks* do Node, como no exemplo abaixo.
 
